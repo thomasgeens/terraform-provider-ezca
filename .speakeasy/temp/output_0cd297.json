@@ -1,0 +1,6229 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EZCA",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/ARM/GetEZCAHasAKVAccess": {
+      "get": {
+        "tags": [
+          "ARM"
+        ],
+        "parameters": [
+          {
+            "name": "akvID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "arm",
+        "x-speakeasy-name-override": "getEzcaHasAkVAccess"
+      }
+    },
+    "/api/Audit/GetCertLogs": {
+      "post": {
+        "tags": [
+          "Audit"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SSLCertAuditLogModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SSLCertAuditLogModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SSLCertAuditLogModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getCertLogs"
+      }
+    },
+    "/api/CA/CreateCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "create"
+      }
+    },
+    "/api/CA/SignExternalSubCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalCASigningReq"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalCASigningReq"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalCASigningReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "signExternalSubCA"
+      }
+    },
+    "/api/CA/RevokeCACertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubCADetailsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubCADetailsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubCADetailsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "revokeCACertificate"
+      }
+    },
+    "/api/CA/GetCASubordinateCerts": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getCaSubordinateCerts"
+      }
+    },
+    "/api/CA/CreateADCSCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ADCSCARequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ADCSCARequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ADCSCARequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "createAdcs"
+      }
+    },
+    "/api/CA/TestAgentConnection": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentTestRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentTestRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentTestRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "testAgentConnection"
+      }
+    },
+    "/api/CA/TestTemplateConnection": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "testTemplateConnection"
+      }
+    },
+    "/api/CA/GetAvailableRoots": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAInformationModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAInformationModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAInformationModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAvailableRoots"
+      }
+    },
+    "/api/CA/GetAvailableLocations": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "premium",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAvailableLocations"
+      }
+    },
+    "/api/CA/GetCAChains": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAChainInfoModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAChainInfoModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CAChainInfoModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getCaChains"
+      }
+    },
+    "/api/CA/CreateIntermidiateCAInternalRoot": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntermediateCertRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntermediateCertRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntermediateCertRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "createIntermediateCaInternalRoot"
+      }
+    },
+    "/api/CA/ImportIntermediateCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreatedResponseModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreatedResponseModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CACreatedResponseModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "importIntermediateCa"
+      }
+    },
+    "/api/CA/ConnectCAToIoTHub": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CAIntegrationRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CAIntegrationRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CAIntegrationRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "connectCaToIotHub"
+      }
+    },
+    "/api/CA/UpdateIoTHubConnection": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updateIoTHubConnection"
+      }
+    },
+    "/api/CA/GetCAIntegrations": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBCAIntegrationModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBCAIntegrationModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBCAIntegrationModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getIntegrations"
+      }
+    },
+    "/api/CA/GetACMECADetails": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACMECAsModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACMECAsModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACMECAsModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAcmeCaDetails"
+      }
+    },
+    "/api/CA/RegisterACMEAgent": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "registerAcmeAgent"
+      }
+    },
+    "/api/CA/UpdateACMEAgent": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updateACMEAgent"
+      }
+    },
+    "/api/CA/DeleteACMEAgent": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBACMEAgentModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "deleteAcmeAgent"
+      }
+    },
+    "/api/CA/RemoveCAIntegration": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBCAIntegrationModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "removeIntegration"
+      }
+    },
+    "/api/CA/GetMyCAs": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getMyCas"
+      }
+    },
+    "/api/CA/GetMyCertifcates": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getMyCertifcates"
+      }
+    },
+    "/api/CA/GetMyCertificatesV2": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getMyCertificatesV2"
+      }
+    },
+    "/api/CA/GetMyDomains": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getMyDomains"
+      }
+    },
+    "/api/CA/AmIAdmin": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "amIAdmin"
+      }
+    },
+    "/api/CA/GetCAErrors": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "getErrors"
+      }
+    },
+    "/api/CA/DeleteCA": {
+      "delete": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "deleteCa"
+      }
+    },
+    "/api/CA/DeleteDomain": {
+      "delete": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "deleteDomain"
+      }
+    },
+    "/api/CA/AdminDeleteDomain": {
+      "delete": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "adminDeleteDomain"
+      }
+    },
+    "/api/CA/UpdateCADetails": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CADetailInformationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CADetailInformationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CADetailInformationModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updateDetails"
+      }
+    },
+    "/api/CA/GetTemplateDomains": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getTemplateDomains"
+      }
+    },
+    "/api/CA/GetTemplateCerts": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getTemplateCerts"
+      }
+    },
+    "/api/CA/RequestSSLCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestSSLCertificate"
+      }
+    },
+    "/api/CA/RequestSSLCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestSslCertificateV2"
+      }
+    },
+    "/api/CA/RequestFullSSLCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "requestFullSslCertificate"
+      }
+    },
+    "/api/CA/RequestDCCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestDcCertificate"
+      }
+    },
+    "/api/CA/RequestDCCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestDcCertificateV2"
+      }
+    },
+    "/api/CA/RequestSCEPAdminCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "requestScepAdminCertificate"
+      }
+    },
+    "/api/CA/RequestSCEPAdminCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestScepAdminCertificateV2"
+      }
+    },
+    "/api/CA/GetCAsEKUs": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getEkUs"
+      }
+    },
+    "/api/CA/RequestAKVSSLCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestAKVSSLCertificate"
+      }
+    },
+    "/api/CA/RequestIoTEdgeCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "requestIotEdgeCertificate"
+      }
+    },
+    "/api/CA/RequestAKVSSLCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestAKVSSLCertificateV2"
+      }
+    },
+    "/api/CA/RequestIoTEdgeCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "requestIotEdgeCertificateV2"
+      }
+    },
+    "/api/CA/RequestDynamicSCEPCode": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequestV2Model"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "requestDynamicScepCode"
+      }
+    },
+    "/api/CA/GetSCEPDynamicCodes": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getScepDynamicCodes"
+      }
+    },
+    "/api/CA/RenewAKVCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "renewAKVSSLCertificate"
+      }
+    },
+    "/api/CA/RenewAKVCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "renewAkVCertificateV2"
+      }
+    },
+    "/api/CA/UpdateDomainDetails": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DomainInformationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DomainInformationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DomainInformationModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updateDomainDetails"
+      }
+    },
+    "/api/CA/UpdateTemplateDetails": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updateTemplateDetails"
+      }
+    },
+    "/api/CA/RegisterNewDomain": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDomainRegistrationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDomainRegistrationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDomainRegistrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "registerNewDomain"
+      }
+    },
+    "/api/CA/PKIAdminGetDomainDetails": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainInformationModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainInformationModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainInformationModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getDomainDetails"
+      }
+    },
+    "/api/CA/GetCATemplates": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getTemplates"
+      }
+    },
+    "/api/CA/RotateSCEPPassword": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "rotateScepPassword"
+      }
+    },
+    "/api/CA/RotateSCEPChallenge": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "rotateSCEPChallenge"
+      }
+    },
+    "/api/CA/GetPublicCATemplate": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicCATemplateDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicCATemplateDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicCATemplateDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getPublicTemplate"
+      }
+    },
+    "/api/CA/GetAvailableSSLCAs": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAvailableSSLCAs"
+      }
+    },
+    "/api/CA/GetAvailableCertIssuingCAs": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAvailableCertIssuing"
+      }
+    },
+    "/api/CA/GetAvailableScepCAs": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAvailableScepCAs"
+      }
+    },
+    "/api/CA/GetSSLCA": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getSslCa"
+      }
+    },
+    "/api/CA/GetAdminCAsCompatibleWithRadius": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getAdminCAsCompatibleWithRadius"
+      }
+    },
+    "/api/CA/GetUserCATemplates": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "caID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateDetailsModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getUserTemplates"
+      }
+    },
+    "/api/CA/RenewCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocalCADetailsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocalCADetailsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LocalCADetailsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CACreatedResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "renew"
+      }
+    },
+    "/api/CA/RevokeCertificate": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "revokeCertificate"
+      }
+    },
+    "/api/CA/RevokeCertificateV2": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSLCertInfoV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "revokeCertificateV2"
+      }
+    },
+    "/api/CA/TestPublicCAConnection": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainsResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainsResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainsResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "testPublicCAConnection"
+      }
+    },
+    "/api/CA/UpdatePublicCACredentials": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCACredentials"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCACredentials"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCACredentials"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updatePublicCredentials"
+      }
+    },
+    "/api/CA/CreatePublicCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCARequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "createPublic"
+      }
+    },
+    "/api/CA/UpdatePublicCA": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCATemplateDetails"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCATemplateDetails"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicCATemplateDetails"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "updatePublicCA"
+      }
+    },
+    "/api/CA/CheckOrderStatus": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderStatusModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderStatusModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderStatusModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "checkOrderStatus"
+      }
+    },
+    "/api/CA/CheckSelfServiceCertAvailable": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "checkSelfServiceCertAvailable"
+      }
+    },
+    "/api/CA/GetSelfServiceCertAvailableProfiles": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getSelfServiceCertAvailableProfiles"
+      }
+    },
+    "/api/CA/CreateSelfServiceCert": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfServiceCertRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfServiceCertRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SelfServiceCertRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "createSelfServiceCertificate"
+      }
+    },
+    "/api/CA/CreateGuestSelfServiceCert": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuestSelfServiceCertRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuestSelfServiceCertRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuestSelfServiceCertRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "createGuestSelfServiceCert"
+      }
+    },
+    "/api/CA/GetExistingSelfServiceCerts": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getExistingSelfServiceCerts"
+      }
+    },
+    "/api/CA/GetCAsWithRegisterDomainPermission": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getCasWithRegisterDomainPermission"
+      }
+    },
+    "/api/CA/RegisterNewF5Agent": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/F5AgentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/F5AgentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/F5AgentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "registerNewF5Agent"
+      }
+    },
+    "/api/CA/GetCertificatePrivateKey": {
+      "get": {
+        "tags": [
+          "CA"
+        ],
+        "parameters": [
+          {
+            "name": "thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "getCertificatePrivateKey"
+      }
+    },
+    "/api/CA/RegisterNewBehalfOfSelfServiceAgent": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceScep"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceScep"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceScep"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "registerNewBehalfOfSelfServiceAgent"
+      }
+    },
+    "/api/CA/RenewSelfServiceCert": {
+      "post": {
+        "tags": [
+          "CA"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceCertificate"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceCertificate"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBSelfServiceCertificate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-group": "CA",
+        "x-speakeasy-name-override": "renewSelfServiceCert"
+      }
+    },
+    "/api/CertAuthAudit/GetCertLogs": {
+      "post": {
+        "tags": [
+          "CertAuthAudit"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertAuditRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertAuditRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertAuditRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "getCertLogs"
+      }
+    },
+    "/api/Certificates/RenewCertificate": {
+      "post": {
+        "tags": [
+          "Certificates"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertRenewReqModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertRenewReqModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertRenewReqModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "renewCertificate"
+      }
+    },
+    "/api/Certificates/RevokeCertificate": {
+      "get": {
+        "tags": [
+          "Certificates"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "revokeCertificate"
+      }
+    },
+    "/api/Dashboard/GetInfo": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "getInfo"
+      }
+    },
+    "/api/PendingRequests/GetPendingRequests": {
+      "get": {
+        "tags": [
+          "PendingRequests"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "get"
+      }
+    },
+    "/api/PendingRequests/GetFullPendingRequests": {
+      "get": {
+        "tags": [
+          "PendingRequests"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-speakeasy-name-override": "getFullPendingRequests"
+      }
+    },
+    "/api/PendingRequests/ApproveDenyRequest": {
+      "post": {
+        "tags": [
+          "PendingRequests"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "approveDeny"
+      }
+    },
+    "/api/PendingRequests/CancelRequest": {
+      "post": {
+        "tags": [
+          "PendingRequests"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DBDomainRegistrationReqModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResultModel"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-name-override": "cancelRequest"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AADObjectModel": {
+        "type": "object",
+        "properties": {
+          "ObjectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ObjectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValid": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ACMECAsModel": {
+        "type": "object",
+        "properties": {
+          "IsEligible": {
+            "type": "boolean"
+          },
+          "Agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DBACMEAgentModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ADCSCAReqConnecitonModel": {
+        "type": "object",
+        "properties": {
+          "CAName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AgentURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "CACert": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ADCSCARequestModel": {
+        "type": "object",
+        "properties": {
+          "SelectedSub": {
+            "$ref": "#/components/schemas/SubscriptionInformationModel"
+          },
+          "CAType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ADCSCAReqConnecitonModel"
+            },
+            "nullable": true
+          },
+          "NotificationEmail": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "CATemplates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CACertTemplateReqModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AKVModel": {
+        "type": "object",
+        "properties": {
+          "VaultLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "VaultVaultName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "APIResultModel": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgentTestRequestModel": {
+        "type": "object",
+        "properties": {
+          "AgentURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuthCert": {
+            "type": "string",
+            "nullable": true
+          },
+          "TestUserName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuditRequestModel": {
+        "type": "object",
+        "properties": {
+          "DateFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "DateTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BasicCertInfoModel": {
+        "type": "object",
+        "properties": {
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CACertTemplateReqModel": {
+        "type": "object",
+        "properties": {
+          "CATemplateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATemplateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DualKeyRequired": {
+            "type": "boolean"
+          },
+          "Approvers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "AllowWildCardDomains": {
+            "type": "boolean"
+          },
+          "AllowAllOrgAsRequesters": {
+            "type": "boolean"
+          },
+          "ApprovedAADRequesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "KeyUsage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EKUModel"
+            },
+            "nullable": true
+          },
+          "CustomEKUs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EKUModel"
+            },
+            "nullable": true
+          },
+          "MaxCertLifeDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DomainRestrictions": {
+            "type": "string",
+            "nullable": true
+          },
+          "EZSCRequestor": {
+            "type": "string",
+            "nullable": true
+          },
+          "AllowedDomains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "SCEPDynamicChallenge": {
+            "type": "boolean"
+          },
+          "SCEPStaticChallenge": {
+            "type": "boolean"
+          },
+          "SCEPSelfService": {
+            "type": "boolean"
+          },
+          "ScepUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SCEPUserPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "SCEPStaticSecret": {
+            "type": "string",
+            "nullable": true
+          },
+          "SCEPChallengeLength": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CAChainInfoModel": {
+        "type": "object",
+        "properties": {
+          "RootCertificate": {
+            "$ref": "#/components/schemas/BasicCertInfoModel"
+          },
+          "SubordinateCAChain": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasicCertInfoModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CACreateRequestModel": {
+        "type": "object",
+        "properties": {
+          "SelectedSub": {
+            "$ref": "#/components/schemas/SubscriptionInformationModel"
+          },
+          "CAType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATier": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssuerInformation": {
+            "$ref": "#/components/schemas/CAIssuerInformationModel"
+          },
+          "CAKeyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAHashing": {
+            "type": "string",
+            "nullable": true
+          },
+          "CALifeTime": {
+            "maximum": 50,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "CRLEnabled": {
+            "type": "boolean"
+          },
+          "OCSPEnabled": {
+            "type": "boolean"
+          },
+          "OCSPExtraLocations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "NotificationEmail": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "maximum": 99,
+            "minimum": 40,
+            "type": "integer",
+            "format": "int32"
+          },
+          "CRLLength": {
+            "maximum": 9999,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "CRLOverlap": {
+            "maximum": 48,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "CRLCustomURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATemplates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CACertTemplateReqModel"
+            },
+            "nullable": true
+          },
+          "CALocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "SecondaryLocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecondaryCALocationsRequestModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CACreatedResponseModel": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocalCAs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocalCACreatedResponseModel"
+            },
+            "nullable": true
+          },
+          "Success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CADetailInformationModel": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SUBID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAKeyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAHashing": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATier": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CALifeTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NotificationEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "maximum": 99,
+            "minimum": 40,
+            "type": "integer",
+            "format": "int32"
+          },
+          "LocalCAs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocalCADetailsModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CAInformationModel": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SUBID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAKeyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAHashing": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATier": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CommonName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CALocation": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CAIntegrationRequestModel": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SUBID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResourceID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DisableIoTDevices": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CAIssuerInformationModel": {
+        "type": "object",
+        "properties": {
+          "Organization": {
+            "maxLength": 64,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\s\\.\\-]*$",
+            "type": "string",
+            "nullable": true
+          },
+          "OrganizationUnit": {
+            "maxLength": 64,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z0-9\\s\\.\\-]*$",
+            "type": "string",
+            "nullable": true
+          },
+          "CommonName": {
+            "maxLength": 64,
+            "minLength": 2,
+            "pattern": "^[a-zA-Z0-9\\s\\.\\-]*$",
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CAShortInformationModel": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertAuditRequestModel": {
+        "type": "object",
+        "properties": {
+          "DateFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "DateTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Certificate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertRenewReqModel": {
+        "type": "object",
+        "properties": {
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidityInDays": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertificateCreateRequestModel": {
+        "type": "object",
+        "properties": {
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectAltNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidityInDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "SelectedLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResourceID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SecretName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AKVName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertAppID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateTags": {
+            "type": "string",
+            "nullable": true
+          },
+          "SID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertificateCreateRequestV2Model": {
+        "type": "object",
+        "properties": {
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectAltNames": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectAltValue"
+            },
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidityInDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "SelectedLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResourceID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SecretName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AKVName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertAppID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateTags": {
+            "type": "string",
+            "nullable": true
+          },
+          "SID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBACMEAgentModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SUBID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertSubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "URL": {
+            "type": "string",
+            "nullable": true
+          },
+          "TestHealth": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBCAIntegrationModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "IntegrationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IntegrationEndpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "IntegrationEndpointParent": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkersAdded": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertNames": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertTags": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Requester": {
+            "type": "string",
+            "nullable": true
+          },
+          "RevokeIoTDevices": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBDomainRegistration": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "DomainID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "NotificationEmails": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBDomainRegistrationReqModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateRequested": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "OriginalRegistration": {
+            "type": "string",
+            "nullable": true
+          },
+          "NewRegistration": {
+            "type": "string",
+            "nullable": true
+          },
+          "Action": {
+            "type": "string",
+            "nullable": true
+          },
+          "RequesterID": {
+            "type": "string",
+            "nullable": true
+          },
+          "RequesterUPN": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateApproved": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Approver": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Approved": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBSelfServiceAcls": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CaID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProfileID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ObjectID": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ObjectTenantID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBSelfServiceCertificate": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Thumbprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "CaID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProfileID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificatePEM": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateFriendly": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrivateKeyPEM": {
+            "type": "string",
+            "nullable": true
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserUPN": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "PolicyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBSelfServiceGuest": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CaTenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CaID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProfileID": {
+            "type": "string",
+            "nullable": true
+          },
+          "allUsers": {
+            "type": "boolean"
+          },
+          "PolicyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DBSelfServiceScep": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CaID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProfileID": {
+            "type": "string",
+            "nullable": true
+          },
+          "allUsers": {
+            "type": "boolean"
+          },
+          "MultipleDevices": {
+            "type": "boolean"
+          },
+          "otherTenants": {
+            "type": "boolean"
+          },
+          "otherTenantsIds": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectAltNames": {
+            "type": "string",
+            "nullable": true
+          },
+          "durationInDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Ekus": {
+            "type": "string",
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "string",
+            "nullable": true
+          },
+          "PolicyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EncryptionKeyLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "BehalfOfAgents": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardChartModel": {
+        "type": "object",
+        "properties": {
+          "Data": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "nullable": true
+          },
+          "Labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardModel": {
+        "type": "object",
+        "properties": {
+          "ActiveCerts": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RevokedCerts": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RegisteredDomains": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertsExpiring15Days": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CAByStatus": {
+            "$ref": "#/components/schemas/DashboardChartModel"
+          },
+          "CAByKeyType": {
+            "$ref": "#/components/schemas/DashboardChartModel"
+          },
+          "CertsByCreation": {
+            "$ref": "#/components/schemas/DashboardChartModel"
+          },
+          "CertAutoRenew": {
+            "$ref": "#/components/schemas/DashboardChartModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomainInformationModel": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DomainID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsOwner": {
+            "type": "boolean"
+          },
+          "IsRequester": {
+            "type": "boolean"
+          },
+          "Owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "Requesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "RequestersOnly": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "NotificationEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomainsResponseModel": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "ErrorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "Domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicDomainResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EKUModel": {
+        "type": "object",
+        "properties": {
+          "Oid": {
+            "type": "string",
+            "nullable": true
+          },
+          "FriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Selected": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalCASigningReq": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "FriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LengthInMonths": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CheckForCAFlag": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "F5AgentRequest": {
+        "type": "object",
+        "properties": {
+          "AgentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateSubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "RequestingCertCA": {
+            "$ref": "#/components/schemas/CAShortInformationModel"
+          },
+          "Tags": {
+            "type": "string",
+            "nullable": true
+          },
+          "NotificationEmails": {
+            "type": "string",
+            "nullable": true
+          },
+          "Owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "AllowedCAs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CAShortInformationModel"
+            },
+            "nullable": true
+          },
+          "F5Devices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/F5RequestModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "F5RequestModel": {
+        "type": "object",
+        "properties": {
+          "F5DeviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Endpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "Username": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GuestSelfServiceCertRequest": {
+        "type": "object",
+        "properties": {
+          "SelfServiceProfile": {
+            "$ref": "#/components/schemas/SelfServiceGuestDetails"
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrivateKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SaveCertInEZCA": {
+            "type": "boolean"
+          },
+          "AutoRotate": {
+            "type": "boolean"
+          },
+          "AutoRotateThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IntermediateCertRequestModel": {
+        "type": "object",
+        "properties": {
+          "CAResponse": {
+            "$ref": "#/components/schemas/CACreatedResponseModel"
+          },
+          "CAInformation": {
+            "$ref": "#/components/schemas/CAInformationModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocalCACreatedResponseModel": {
+        "type": "object",
+        "properties": {
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "Cert": {
+            "type": "string",
+            "nullable": true
+          },
+          "ParentCert": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "CommonName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocalCADetailsModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CALocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAKeyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAHashing": {
+            "type": "string",
+            "nullable": true
+          },
+          "Organization": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrganizationUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "CommonName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "CACertificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "ParentCert": {
+            "type": "string",
+            "nullable": true
+          },
+          "AgentURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "CloudProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CRLRealLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CRLFriendlyURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertFriendlyURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkerID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewDomainRegistrationRequest": {
+        "type": "object",
+        "properties": {
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "Owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "Requesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "RequestersOnly": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "NotificationEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderStatusModel": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "OrderStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "Certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "CACertificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExtraInfo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicCACredentials": {
+        "type": "object",
+        "properties": {
+          "SubID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProviderUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProviderPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProfileID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicCARequest": {
+        "type": "object",
+        "properties": {
+          "SelectedSub": {
+            "$ref": "#/components/schemas/SubscriptionInformationModel"
+          },
+          "CAProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProviderUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProfileID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAProviderPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "NotificationEmail": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "CATemplate": {
+            "$ref": "#/components/schemas/PublicCATemplateRequestModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicCATemplateDetails": {
+        "type": "object",
+        "properties": {
+          "ErrorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATemplateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "MaxCertLifeDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DualKeyRequired": {
+            "type": "boolean"
+          },
+          "AllowWildCardDomains": {
+            "type": "boolean"
+          },
+          "AllowAllOrgAsRequesters": {
+            "type": "boolean"
+          },
+          "ApprovedAADRequesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "Approvers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "AllowedDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicDomainResponseInfo"
+            },
+            "nullable": true
+          },
+          "AvailableDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicDomainResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicCATemplateRequestModel": {
+        "type": "object",
+        "properties": {
+          "DualKeyRequired": {
+            "type": "boolean"
+          },
+          "Approvers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "AllowWildCardDomains": {
+            "type": "boolean"
+          },
+          "AllowAllOrgAsRequesters": {
+            "type": "boolean"
+          },
+          "ApprovedAADRequesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "MaxCertLifeDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AllowedDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicDomainResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicDomainResponse": {
+        "type": "object",
+        "properties": {
+          "DomainID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DomainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Validated": {
+            "type": "boolean"
+          },
+          "ValidationMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationDateExpiry": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "AllowWildCards": {
+            "type": "boolean"
+          },
+          "AllowACME": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicDomainResponseInfo": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DomainID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DomainName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Validated": {
+            "type": "boolean"
+          },
+          "ValidationMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationDateExpiry": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "AllowWildCards": {
+            "type": "boolean"
+          },
+          "IsRegistered": {
+            "type": "boolean"
+          },
+          "NewRegistration": {
+            "type": "boolean"
+          },
+          "AllowACME": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SSLCertAuditLogModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateRequested": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "Thumbprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificatePEM": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Requester": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertLocationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertNameAtLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "Action": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SSLCertInfo": {
+        "type": "object",
+        "properties": {
+          "CertificatePEM": {
+            "type": "string",
+            "nullable": true
+          },
+          "Thumbprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Revoked": {
+            "type": "boolean"
+          },
+          "SubjectAlternateNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "DateRequested": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "CertLocationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertNameAtLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertLengthDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertAppID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateTags": {
+            "type": "string",
+            "nullable": true
+          },
+          "CanRevoke": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SSLCertInfoV2": {
+        "type": "object",
+        "properties": {
+          "CertificatePEM": {
+            "type": "string",
+            "nullable": true
+          },
+          "Thumbprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Revoked": {
+            "type": "boolean"
+          },
+          "SubjectAlternateNames": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectAltValue"
+            },
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "DateRequested": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "CertLocationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertNameAtLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "AutoRenew": {
+            "type": "boolean"
+          },
+          "AutoRenewPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertLengthDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CertAppID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateTags": {
+            "type": "string",
+            "nullable": true
+          },
+          "CanRevoke": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecondaryCALocationsRequestModel": {
+        "type": "object",
+        "properties": {
+          "CALocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAName": {
+            "maxLength": 64,
+            "minLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfServiceCertRequest": {
+        "type": "object",
+        "properties": {
+          "SelfServiceProfile": {
+            "$ref": "#/components/schemas/DBSelfServiceScep"
+          },
+          "CSR": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrivateKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "CertificateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SaveCertInEZCA": {
+            "type": "boolean"
+          },
+          "AutoRotate": {
+            "type": "boolean"
+          },
+          "AutoRotateThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfServiceGuestDetails": {
+        "type": "object",
+        "properties": {
+          "OriginalTenantPolicy": {
+            "$ref": "#/components/schemas/DBSelfServiceScep"
+          },
+          "GuestPolicy": {
+            "$ref": "#/components/schemas/DBSelfServiceGuest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfServiceGuestModel": {
+        "type": "object",
+        "properties": {
+          "GuestProfile": {
+            "$ref": "#/components/schemas/DBSelfServiceGuest"
+          },
+          "Acls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DBSelfServiceAcls"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfServiceProfileModel": {
+        "type": "object",
+        "properties": {
+          "SelfServiceProfile": {
+            "$ref": "#/components/schemas/DBSelfServiceScep"
+          },
+          "GuestProfiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelfServiceGuestModel"
+            },
+            "nullable": true
+          },
+          "Acls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DBSelfServiceAcls"
+            },
+            "nullable": true
+          },
+          "Sans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectAlternateNameModel"
+            },
+            "nullable": true
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EKUModel"
+            },
+            "nullable": true
+          },
+          "KeyUsages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIResultModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubCADetailsModel": {
+        "type": "object",
+        "properties": {
+          "ParentCAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "FriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CACertificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsRevoked": {
+            "type": "boolean"
+          },
+          "IsExternalCA": {
+            "type": "boolean"
+          },
+          "WorkerID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CALocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectAltValue": {
+        "type": "object",
+        "properties": {
+          "ValueSTR": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectAltType": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectAlternateNameModel": {
+        "type": "object",
+        "properties": {
+          "SanType": {
+            "type": "string",
+            "nullable": true
+          },
+          "SanValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubscriptionInformationModel": {
+        "type": "object",
+        "properties": {
+          "SubscriptionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubscriptionID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAPrice": {
+            "type": "string",
+            "nullable": true
+          },
+          "SupportType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BYOK": {
+            "type": "boolean"
+          },
+          "BYOCA": {
+            "type": "boolean"
+          },
+          "Locations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AKVModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TemplateDetailsModel": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAID": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATemplateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DualKeyRequired": {
+            "type": "boolean"
+          },
+          "AllowWildCardDomains": {
+            "type": "boolean"
+          },
+          "AllowAllOrgAsRequesters": {
+            "type": "boolean"
+          },
+          "KeyUsage": {
+            "type": "string",
+            "nullable": true
+          },
+          "MaxCertLifeDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DomainRestrictions": {
+            "type": "string",
+            "nullable": true
+          },
+          "ApprovedAADRequesters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "Approvers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AADObjectModel"
+            },
+            "nullable": true
+          },
+          "AllowedDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIResultModel"
+            },
+            "nullable": true
+          },
+          "CAKeyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CAHashing": {
+            "type": "string",
+            "nullable": true
+          },
+          "EKUs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CustomEKUs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EKUModel"
+            },
+            "nullable": true
+          },
+          "ScepUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SCEPDynamicChallenge": {
+            "type": "boolean"
+          },
+          "SCEPStaticChallenge": {
+            "type": "boolean"
+          },
+          "SCEPSelfService": {
+            "type": "boolean"
+          },
+          "SCEPChallengeLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SCEPSecret": {
+            "type": "string",
+            "nullable": true
+          },
+          "SCEPUserPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "scepHashingAllowed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIResultModel"
+            },
+            "nullable": true
+          },
+          "SCEPEncryptionAllowed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIResultModel"
+            },
+            "nullable": true
+          },
+          "SCEPSelfServiceProfiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelfServiceProfileModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please insert JWT with Bearer into field",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://portal.ezca.io/",
+      "description": "Production"
+    }
+  ],
+  "x-speakeasy-retries": {
+    "strategy": "backoff",
+    "backoff": {
+      "initialInterval": 500,
+      "maxInterval": 60000,
+      "maxElapsedTime": 3600000,
+      "exponent": 1.5
+    },
+    "statusCodes": [
+      "5XX"
+    ],
+    "retryConnectionErrors": true
+  }
+}

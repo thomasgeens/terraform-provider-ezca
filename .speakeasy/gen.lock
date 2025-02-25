@@ -1,0 +1,604 @@
+lockVersion: 2.0.0
+id: 31f5becd-db98-4295-962e-ff62ef749297
+management:
+  docChecksum: fe244ad33f95c898babeb8695ec471ac
+  docVersion: v1
+  speakeasyVersion: 1.504.1
+  generationVersion: 2.529.2
+  releaseVersion: 0.7.0
+  configChecksum: 521c9fbd5d8121364f4fe23b25011822
+features:
+  terraform:
+    additionalDependencies: 0.1.0
+    core: 3.34.0
+    envVarSecurityUsage: 0.1.0
+    globalSecurity: 2.81.10
+    globalServerURLs: 2.82.1
+    groups: 2.81.2
+    nameOverrides: 2.81.2
+    nullables: 0.0.0
+    retries: 2.81.2
+generatedFiles:
+  - .gitattributes
+  - USAGE.md
+  - examples/README.md
+  - examples/provider/provider.tf
+  - go.mod
+  - go.sum
+  - internal/planmodifiers/boolplanmodifier/suppress_diff.go
+  - internal/planmodifiers/float32planmodifier/suppress_diff.go
+  - internal/planmodifiers/float64planmodifier/suppress_diff.go
+  - internal/planmodifiers/int32planmodifier/suppress_diff.go
+  - internal/planmodifiers/int64planmodifier/suppress_diff.go
+  - internal/planmodifiers/listplanmodifier/suppress_diff.go
+  - internal/planmodifiers/mapplanmodifier/suppress_diff.go
+  - internal/planmodifiers/numberplanmodifier/suppress_diff.go
+  - internal/planmodifiers/objectplanmodifier/suppress_diff.go
+  - internal/planmodifiers/setplanmodifier/suppress_diff.go
+  - internal/planmodifiers/stringplanmodifier/suppress_diff.go
+  - internal/planmodifiers/utils/state_check.go
+  - internal/provider/provider.go
+  - internal/provider/reflect/diags.go
+  - internal/provider/reflect/doc.go
+  - internal/provider/reflect/generic_attr_value.go
+  - internal/provider/reflect/helpers.go
+  - internal/provider/reflect/interfaces.go
+  - internal/provider/reflect/into.go
+  - internal/provider/reflect/map.go
+  - internal/provider/reflect/number.go
+  - internal/provider/reflect/options.go
+  - internal/provider/reflect/outof.go
+  - internal/provider/reflect/pointer.go
+  - internal/provider/reflect/primitive.go
+  - internal/provider/reflect/slice.go
+  - internal/provider/reflect/struct.go
+  - internal/provider/utils.go
+  - internal/sdk/.gitattributes
+  - internal/sdk/arm.go
+  - internal/sdk/audit.go
+  - internal/sdk/ca.go
+  - internal/sdk/certauthaudit.go
+  - internal/sdk/certificates.go
+  - internal/sdk/dashboard.go
+  - internal/sdk/ezca.go
+  - internal/sdk/internal/hooks/hooks.go
+  - internal/sdk/internal/utils/contenttype.go
+  - internal/sdk/internal/utils/env.go
+  - internal/sdk/internal/utils/form.go
+  - internal/sdk/internal/utils/headers.go
+  - internal/sdk/internal/utils/json.go
+  - internal/sdk/internal/utils/pathparams.go
+  - internal/sdk/internal/utils/queryparams.go
+  - internal/sdk/internal/utils/requestbody.go
+  - internal/sdk/internal/utils/retries.go
+  - internal/sdk/internal/utils/security.go
+  - internal/sdk/internal/utils/utils.go
+  - internal/sdk/models/errors/apierror.go
+  - internal/sdk/models/operations/deleteapicaadmindeletedomain.go
+  - internal/sdk/models/operations/deleteapicadeleteca.go
+  - internal/sdk/models/operations/deleteapicadeletedomain.go
+  - internal/sdk/models/operations/getapiarmgetezcahasakvaccess.go
+  - internal/sdk/models/operations/getapicaamiadmin.go
+  - internal/sdk/models/operations/getapicacheckorderstatus.go
+  - internal/sdk/models/operations/getapicacheckselfservicecertavailable.go
+  - internal/sdk/models/operations/getapicagetacmecadetails.go
+  - internal/sdk/models/operations/getapicagetadmincascompatiblewithradius.go
+  - internal/sdk/models/operations/getapicagetavailablecertissuingcas.go
+  - internal/sdk/models/operations/getapicagetavailablelocations.go
+  - internal/sdk/models/operations/getapicagetavailableroots.go
+  - internal/sdk/models/operations/getapicagetavailablescepcas.go
+  - internal/sdk/models/operations/getapicagetavailablesslcas.go
+  - internal/sdk/models/operations/getapicagetcachains.go
+  - internal/sdk/models/operations/getapicagetcaerrors.go
+  - internal/sdk/models/operations/getapicagetcaintegrations.go
+  - internal/sdk/models/operations/getapicagetcasekus.go
+  - internal/sdk/models/operations/getapicagetcasubordinatecerts.go
+  - internal/sdk/models/operations/getapicagetcaswithregisterdomainpermission.go
+  - internal/sdk/models/operations/getapicagetcatemplates.go
+  - internal/sdk/models/operations/getapicagetcertificateprivatekey.go
+  - internal/sdk/models/operations/getapicagetexistingselfservicecerts.go
+  - internal/sdk/models/operations/getapicagetmycas.go
+  - internal/sdk/models/operations/getapicagetmycertifcates.go
+  - internal/sdk/models/operations/getapicagetmycertificatesv2.go
+  - internal/sdk/models/operations/getapicagetmydomains.go
+  - internal/sdk/models/operations/getapicagetpubliccatemplate.go
+  - internal/sdk/models/operations/getapicagetscepdynamiccodes.go
+  - internal/sdk/models/operations/getapicagetselfservicecertavailableprofiles.go
+  - internal/sdk/models/operations/getapicagetsslca.go
+  - internal/sdk/models/operations/getapicagetusercatemplates.go
+  - internal/sdk/models/operations/getapicarotatescepchallenge.go
+  - internal/sdk/models/operations/getapicarotatesceppassword.go
+  - internal/sdk/models/operations/getapicatesttemplateconnection.go
+  - internal/sdk/models/operations/getapicertificatesrevokecertificate.go
+  - internal/sdk/models/operations/getapidashboardgetinfo.go
+  - internal/sdk/models/operations/getapipendingrequestsgetfullpendingrequests.go
+  - internal/sdk/models/operations/getapipendingrequestsgetpendingrequests.go
+  - internal/sdk/models/operations/options.go
+  - internal/sdk/models/operations/postapiauditgetcertlogs.go
+  - internal/sdk/models/operations/postapicaconnectcatoiothub.go
+  - internal/sdk/models/operations/postapicacreateadcsca.go
+  - internal/sdk/models/operations/postapicacreateca.go
+  - internal/sdk/models/operations/postapicacreateguestselfservicecert.go
+  - internal/sdk/models/operations/postapicacreateintermidiatecainternalroot.go
+  - internal/sdk/models/operations/postapicacreatepublicca.go
+  - internal/sdk/models/operations/postapicacreateselfservicecert.go
+  - internal/sdk/models/operations/postapicadeleteacmeagent.go
+  - internal/sdk/models/operations/postapicagettemplatecerts.go
+  - internal/sdk/models/operations/postapicagettemplatedomains.go
+  - internal/sdk/models/operations/postapicaimportintermediateca.go
+  - internal/sdk/models/operations/postapicapkiadmingetdomaindetails.go
+  - internal/sdk/models/operations/postapicaregisteracmeagent.go
+  - internal/sdk/models/operations/postapicaregisternewbehalfofselfserviceagent.go
+  - internal/sdk/models/operations/postapicaregisternewdomain.go
+  - internal/sdk/models/operations/postapicaregisternewf5agent.go
+  - internal/sdk/models/operations/postapicaremovecaintegration.go
+  - internal/sdk/models/operations/postapicarenewakvcertificate.go
+  - internal/sdk/models/operations/postapicarenewakvcertificatev2.go
+  - internal/sdk/models/operations/postapicarenewca.go
+  - internal/sdk/models/operations/postapicarenewselfservicecert.go
+  - internal/sdk/models/operations/postapicarequestakvsslcertificate.go
+  - internal/sdk/models/operations/postapicarequestakvsslcertificatev2.go
+  - internal/sdk/models/operations/postapicarequestdccertificate.go
+  - internal/sdk/models/operations/postapicarequestdccertificatev2.go
+  - internal/sdk/models/operations/postapicarequestdynamicscepcode.go
+  - internal/sdk/models/operations/postapicarequestfullsslcertificate.go
+  - internal/sdk/models/operations/postapicarequestiotedgecertificate.go
+  - internal/sdk/models/operations/postapicarequestiotedgecertificatev2.go
+  - internal/sdk/models/operations/postapicarequestscepadmincertificate.go
+  - internal/sdk/models/operations/postapicarequestscepadmincertificatev2.go
+  - internal/sdk/models/operations/postapicarequestsslcertificate.go
+  - internal/sdk/models/operations/postapicarequestsslcertificatev2.go
+  - internal/sdk/models/operations/postapicarevokecacertificate.go
+  - internal/sdk/models/operations/postapicarevokecertificate.go
+  - internal/sdk/models/operations/postapicarevokecertificatev2.go
+  - internal/sdk/models/operations/postapicasignexternalsubca.go
+  - internal/sdk/models/operations/postapicatestagentconnection.go
+  - internal/sdk/models/operations/postapicatestpubliccaconnection.go
+  - internal/sdk/models/operations/postapicaupdateacmeagent.go
+  - internal/sdk/models/operations/postapicaupdatecadetails.go
+  - internal/sdk/models/operations/postapicaupdatedomaindetails.go
+  - internal/sdk/models/operations/postapicaupdateiothubconnection.go
+  - internal/sdk/models/operations/postapicaupdatepublicca.go
+  - internal/sdk/models/operations/postapicaupdatepubliccacredentials.go
+  - internal/sdk/models/operations/postapicaupdatetemplatedetails.go
+  - internal/sdk/models/operations/postapicertauthauditgetcertlogs.go
+  - internal/sdk/models/operations/postapicertificatesrenewcertificate.go
+  - internal/sdk/models/operations/postapipendingrequestsapprovedenyrequest.go
+  - internal/sdk/models/operations/postapipendingrequestscancelrequest.go
+  - internal/sdk/models/shared/aadobjectmodel.go
+  - internal/sdk/models/shared/acmecasmodel.go
+  - internal/sdk/models/shared/adcscareqconnecitonmodel.go
+  - internal/sdk/models/shared/adcscarequestmodel.go
+  - internal/sdk/models/shared/agenttestrequestmodel.go
+  - internal/sdk/models/shared/akvmodel.go
+  - internal/sdk/models/shared/apiresultmodel.go
+  - internal/sdk/models/shared/auditrequestmodel.go
+  - internal/sdk/models/shared/basiccertinfomodel.go
+  - internal/sdk/models/shared/cacerttemplatereqmodel.go
+  - internal/sdk/models/shared/cachaininfomodel.go
+  - internal/sdk/models/shared/cacreatedresponsemodel.go
+  - internal/sdk/models/shared/cacreaterequestmodel.go
+  - internal/sdk/models/shared/cadetailinformationmodel.go
+  - internal/sdk/models/shared/cainformationmodel.go
+  - internal/sdk/models/shared/caintegrationrequestmodel.go
+  - internal/sdk/models/shared/caissuerinformationmodel.go
+  - internal/sdk/models/shared/cashortinformationmodel.go
+  - internal/sdk/models/shared/certauditrequestmodel.go
+  - internal/sdk/models/shared/certificatecreaterequestmodel.go
+  - internal/sdk/models/shared/certificatecreaterequestv2model.go
+  - internal/sdk/models/shared/certrenewreqmodel.go
+  - internal/sdk/models/shared/dashboardchartmodel.go
+  - internal/sdk/models/shared/dashboardmodel.go
+  - internal/sdk/models/shared/dbacmeagentmodel.go
+  - internal/sdk/models/shared/dbcaintegrationmodel.go
+  - internal/sdk/models/shared/dbdomainregistration.go
+  - internal/sdk/models/shared/dbdomainregistrationreqmodel.go
+  - internal/sdk/models/shared/dbselfserviceacls.go
+  - internal/sdk/models/shared/dbselfservicecertificate.go
+  - internal/sdk/models/shared/dbselfserviceguest.go
+  - internal/sdk/models/shared/dbselfservicescep.go
+  - internal/sdk/models/shared/domaininformationmodel.go
+  - internal/sdk/models/shared/domainsresponsemodel.go
+  - internal/sdk/models/shared/ekumodel.go
+  - internal/sdk/models/shared/externalcasigningreq.go
+  - internal/sdk/models/shared/f5agentrequest.go
+  - internal/sdk/models/shared/f5requestmodel.go
+  - internal/sdk/models/shared/guestselfservicecertrequest.go
+  - internal/sdk/models/shared/intermediatecertrequestmodel.go
+  - internal/sdk/models/shared/localcacreatedresponsemodel.go
+  - internal/sdk/models/shared/localcadetailsmodel.go
+  - internal/sdk/models/shared/newdomainregistrationrequest.go
+  - internal/sdk/models/shared/orderstatusmodel.go
+  - internal/sdk/models/shared/publiccacredentials.go
+  - internal/sdk/models/shared/publiccarequest.go
+  - internal/sdk/models/shared/publiccatemplatedetails.go
+  - internal/sdk/models/shared/publiccatemplaterequestmodel.go
+  - internal/sdk/models/shared/publicdomainresponse.go
+  - internal/sdk/models/shared/publicdomainresponseinfo.go
+  - internal/sdk/models/shared/secondarycalocationsrequestmodel.go
+  - internal/sdk/models/shared/security.go
+  - internal/sdk/models/shared/selfservicecertrequest.go
+  - internal/sdk/models/shared/selfserviceguestdetails.go
+  - internal/sdk/models/shared/selfserviceguestmodel.go
+  - internal/sdk/models/shared/selfserviceprofilemodel.go
+  - internal/sdk/models/shared/sslcertauditlogmodel.go
+  - internal/sdk/models/shared/sslcertinfo.go
+  - internal/sdk/models/shared/sslcertinfov2.go
+  - internal/sdk/models/shared/subcadetailsmodel.go
+  - internal/sdk/models/shared/subjectalternatenamemodel.go
+  - internal/sdk/models/shared/subjectaltvalue.go
+  - internal/sdk/models/shared/subscriptioninformationmodel.go
+  - internal/sdk/models/shared/templatedetailsmodel.go
+  - internal/sdk/pendingrequests.go
+  - internal/sdk/retry/config.go
+  - internal/sdk/types/bigint.go
+  - internal/sdk/types/date.go
+  - internal/sdk/types/datetime.go
+  - internal/sdk/types/decimal.go
+  - internal/sdk/types/pointers.go
+  - internal/validators/DateValidator.go
+  - internal/validators/ExactlyOneChild.go
+  - internal/validators/JSONParseValidator.go
+  - internal/validators/RFC3339Validator.go
+  - internal/validators/boolvalidators/not_null.go
+  - internal/validators/float32validators/not_null.go
+  - internal/validators/float64validators/not_null.go
+  - internal/validators/int32validators/not_null.go
+  - internal/validators/int64validators/not_null.go
+  - internal/validators/listvalidators/not_null.go
+  - internal/validators/mapvalidators/not_null.go
+  - internal/validators/numbervalidators/not_null.go
+  - internal/validators/objectvalidators/not_null.go
+  - internal/validators/setvalidators/not_null.go
+  - internal/validators/stringvalidators/not_null.go
+  - main.go
+  - terraform-registry-manifest.json
+  - tools/tools.go
+examples:
+  get_/api/ARM/GetEZCAHasAKVAccess: {}
+  post_/api/Audit/GetCertLogs:
+    speakeasy-default-post-/api/audit/get-cert-logs:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/CreateCA:
+    speakeasy-default-post-/api/ca/create-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/SignExternalSubCA:
+    speakeasy-default-post-/api/ca/sign-external-sub-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RevokeCACertificate:
+    speakeasy-default-post-/api/ca/revoke-CA-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetCASubordinateCerts: {}
+  post_/api/CA/CreateADCSCA:
+    speakeasy-default-post-/api/ca/create-ADCSCA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/TestAgentConnection:
+    speakeasy-default-post-/api/ca/test-agent-connection:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/TestTemplateConnection: {}
+  get_/api/CA/GetAvailableRoots: {}
+  get_/api/CA/GetAvailableLocations: {}
+  get_/api/CA/GetCAChains: {}
+  post_/api/CA/CreateIntermidiateCAInternalRoot:
+    speakeasy-default-post-/api/ca/create-intermidiate-CA-internal-root:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/ImportIntermediateCA:
+    speakeasy-default-post-/api/ca/import-intermediate-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/ConnectCAToIoTHub:
+    speakeasy-default-post-/api/ca/connect-CA-to-io-T-hub:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdateIoTHubConnection:
+    speakeasy-default-post-/api/ca/update-io-T-hub-connection:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetCAIntegrations: {}
+  get_/api/CA/GetACMECADetails: {}
+  post_/api/CA/RegisterACMEAgent:
+    speakeasy-default-post-/api/ca/register-ACME-agent:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdateACMEAgent:
+    speakeasy-default-post-/api/ca/update-ACME-agent:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/DeleteACMEAgent:
+    speakeasy-default-post-/api/ca/delete-ACME-agent:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RemoveCAIntegration:
+    speakeasy-default-post-/api/ca/remove-CA-integration:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetMyCAs: {}
+  get_/api/CA/GetMyCertifcates: {}
+  get_/api/CA/GetMyCertificatesV2: {}
+  get_/api/CA/GetMyDomains: {}
+  get_/api/CA/AmIAdmin: {}
+  get_/api/CA/GetCAErrors: {}
+  delete_/api/CA/DeleteCA: {}
+  delete_/api/CA/DeleteDomain: {}
+  delete_/api/CA/AdminDeleteDomain: {}
+  post_/api/CA/UpdateCADetails:
+    speakeasy-default-post-/api/ca/update-CA-details:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/GetTemplateDomains:
+    speakeasy-default-post-/api/ca/get-template-domains:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/GetTemplateCerts:
+    speakeasy-default-post-/api/ca/get-template-certs:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestSSLCertificate:
+    speakeasy-default-post-/api/ca/request-SSL-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestSSLCertificateV2:
+    speakeasy-default-post-/api/ca/request-SSL-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestFullSSLCertificate:
+    speakeasy-default-post-/api/ca/request-full-SSL-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestDCCertificate:
+    speakeasy-default-post-/api/ca/request-DC-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestDCCertificateV2:
+    speakeasy-default-post-/api/ca/request-DC-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestSCEPAdminCertificate:
+    speakeasy-default-post-/api/ca/request-SCEP-admin-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestSCEPAdminCertificateV2:
+    speakeasy-default-post-/api/ca/request-SCEP-admin-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetCAsEKUs: {}
+  post_/api/CA/RequestAKVSSLCertificate:
+    speakeasy-default-post-/api/ca/request-AKVSSL-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestIoTEdgeCertificate:
+    speakeasy-default-post-/api/ca/request-io-T-edge-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestAKVSSLCertificateV2:
+    speakeasy-default-post-/api/ca/request-AKVSSL-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestIoTEdgeCertificateV2:
+    speakeasy-default-post-/api/ca/request-io-T-edge-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RequestDynamicSCEPCode:
+    speakeasy-default-post-/api/ca/request-dynamic-SCEP-code:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetSCEPDynamicCodes: {}
+  post_/api/CA/RenewAKVCertificate:
+    speakeasy-default-post-/api/ca/renew-AKV-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RenewAKVCertificateV2:
+    speakeasy-default-post-/api/ca/renew-AKV-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdateDomainDetails:
+    speakeasy-default-post-/api/ca/update-domain-details:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdateTemplateDetails:
+    speakeasy-default-post-/api/ca/update-template-details:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RegisterNewDomain:
+    speakeasy-default-post-/api/ca/register-new-domain:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/PKIAdminGetDomainDetails:
+    speakeasy-default-post-/api/ca/pki-admin-get-domain-details:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetCATemplates: {}
+  get_/api/CA/RotateSCEPPassword: {}
+  get_/api/CA/RotateSCEPChallenge: {}
+  get_/api/CA/GetPublicCATemplate: {}
+  get_/api/CA/GetAvailableSSLCAs: {}
+  get_/api/CA/GetAvailableCertIssuingCAs: {}
+  get_/api/CA/GetAvailableScepCAs: {}
+  get_/api/CA/GetSSLCA: {}
+  get_/api/CA/GetAdminCAsCompatibleWithRadius: {}
+  get_/api/CA/GetUserCATemplates: {}
+  post_/api/CA/RenewCA:
+    speakeasy-default-post-/api/ca/renew-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RevokeCertificate:
+    speakeasy-default-post-/api/ca/revoke-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RevokeCertificateV2:
+    speakeasy-default-post-/api/ca/revoke-certificate-v2:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/TestPublicCAConnection:
+    speakeasy-default-post-/api/ca/test-public-CA-connection:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdatePublicCACredentials:
+    speakeasy-default-post-/api/ca/update-public-CA-credentials:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/CreatePublicCA:
+    speakeasy-default-post-/api/ca/create-public-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/UpdatePublicCA:
+    speakeasy-default-post-/api/ca/update-public-CA:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/CheckOrderStatus: {}
+  get_/api/CA/CheckSelfServiceCertAvailable: {}
+  get_/api/CA/GetSelfServiceCertAvailableProfiles: {}
+  post_/api/CA/CreateSelfServiceCert:
+    speakeasy-default-post-/api/ca/create-self-service-cert:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/CreateGuestSelfServiceCert:
+    speakeasy-default-post-/api/ca/create-guest-self-service-cert:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetExistingSelfServiceCerts: {}
+  get_/api/CA/GetCAsWithRegisterDomainPermission: {}
+  post_/api/CA/RegisterNewF5Agent:
+    speakeasy-default-post-/api/ca/register-new-f5-agent:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/CA/GetCertificatePrivateKey: {}
+  post_/api/CA/RegisterNewBehalfOfSelfServiceAgent:
+    speakeasy-default-post-/api/ca/register-new-behalf-of-self-service-agent:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CA/RenewSelfServiceCert:
+    speakeasy-default-post-/api/ca/renew-self-service-cert:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/CertAuthAudit/GetCertLogs:
+    speakeasy-default-post-/api/cert-auth-audit/get-cert-logs:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/Certificates/RenewCertificate:
+    speakeasy-default-post-/api/certificates/renew-certificate:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  get_/api/Certificates/RevokeCertificate: {}
+  get_/api/Dashboard/GetInfo: {}
+  get_/api/PendingRequests/GetPendingRequests: {}
+  get_/api/PendingRequests/GetFullPendingRequests: {}
+  post_/api/PendingRequests/ApproveDenyRequest:
+    speakeasy-default-post-/api/pending-requests/approve-deny-request:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+  post_/api/PendingRequests/CancelRequest:
+    speakeasy-default-post-/api/pending-requests/cancel-request:
+      requestBody:
+        application/json: {}
+        text/json: {}
+        application/*+json: {}
+examplesVersion: 1.0.0
+generatedTests: {}

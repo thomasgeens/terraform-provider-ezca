@@ -1,0 +1,30 @@
+speakeasyVersion: 1.504.1
+sources:
+    EZCA:
+        sourceNamespace: ezca
+        sourceRevisionDigest: sha256:504e564ba618f96f8884e5549ccdb9c9fe6d8d20d6476e2dd0244ba1a06b1329
+        sourceBlobDigest: sha256:a4e045c4d5cf9be84c1d059695d453b9e852be1b97729ece8f26f98050493177
+        tags:
+            - latest
+            - v1
+targets:
+    ezca:
+        source: EZCA
+        sourceNamespace: ezca
+        sourceRevisionDigest: sha256:504e564ba618f96f8884e5549ccdb9c9fe6d8d20d6476e2dd0244ba1a06b1329
+        sourceBlobDigest: sha256:a4e045c4d5cf9be84c1d059695d453b9e852be1b97729ece8f26f98050493177
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        EZCA:
+            inputs:
+                - location: https://portal.ezca.io/swagger/v1/swagger.json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/secotron/keytos-ezca/ezca
+    targets:
+        ezca:
+            target: terraform
+            source: EZCA

@@ -1,0 +1,1562 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.17
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/api/CA/AdminDeleteDomain"]["delete"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: adminDeleteDomain
+    x-speakeasy-metadata:
+      after: sdk.CAs.adminDeleteDomain()
+      before: sdk.CA.delete_/api/CA/AdminDeleteDomain()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/ConnectCAToIoTHub"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: connectCaToIotHub
+    x-speakeasy-metadata:
+      after: sdk.ca.connectCaToIotHub()
+      before: sdk.CA.post_/api/CA/ConnectCAToIoTHub()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RevokeCACertificate"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: revokeCACertificate
+    x-speakeasy-metadata:
+      after: sdk.CAs.revokeCACertificate()
+      before: sdk.CA.post_/api/CA/RevokeCACertificate()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CreateCA"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.cA.create()
+      before: sdk.CA.post_/api/CA/CreateCA()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestSSLCertificate"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: requestSSLCertificate
+    x-speakeasy-metadata:
+      after: sdk.CAs.requestSSLCertificate()
+      before: sdk.CA.post_/api/CA/RequestSSLCertificate()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/PendingRequests/GetPendingRequests"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.pendingRequests.get()
+      before: sdk.PendingRequests.get_/api/PendingRequests/GetPendingRequests()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCAsEKUs"]["get"]
+    update:
+      x-speakeasy-name-override: getEkUs
+    x-speakeasy-metadata:
+      after: sdk.cA.getEkUs()
+      before: sdk.CA.get_/api/CA/GetCAsEKUs()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/PendingRequests/GetFullPendingRequests"]["get"]
+    update:
+      x-speakeasy-name-override: getFullPendingRequests
+    x-speakeasy-metadata:
+      after: sdk.pendingRequests.getFullPendingRequests()
+      before: sdk.PendingRequests.get_/api/PendingRequests/GetFullPendingRequests()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetSSLCA"]["get"]
+    update:
+      x-speakeasy-name-override: getSslCa
+    x-speakeasy-metadata:
+      after: sdk.cA.getSslCa()
+      before: sdk.CA.get_/api/CA/GetSSLCA()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/TestAgentConnection"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: testAgentConnection
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.testAgentConnection()
+      before: sdk.CA.post_/api/CA/TestAgentConnection()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCertificatePrivateKey"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getCertificatePrivateKey
+    x-speakeasy-metadata:
+      after: sdk.ca.getCertificatePrivateKey()
+      before: sdk.CA.get_/api/CA/GetCertificatePrivateKey()
+      created_at: 1740518748163
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCASubordinateCerts"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getCaSubordinateCerts
+    x-speakeasy-metadata:
+      after: sdk.ca.getCaSubordinateCerts()
+      before: sdk.CA.get_/api/CA/GetCASubordinateCerts()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/TestPublicCAConnection"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: testPublicCAConnection
+    x-speakeasy-metadata:
+      after: sdk.CAs.testPublicCAConnection()
+      before: sdk.CA.post_/api/CA/TestPublicCAConnection()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetPublicCATemplate"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getPublicTemplate
+    x-speakeasy-metadata:
+      after: sdk.ca.getPublicTemplate()
+      before: sdk.CA.get_/api/CA/GetPublicCATemplate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCAIntegrations"]["get"]
+    update:
+      x-speakeasy-name-override: getIntegrations
+    x-speakeasy-metadata:
+      after: sdk.cA.getIntegrations()
+      before: sdk.CA.get_/api/CA/GetCAIntegrations()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCATemplates"]["get"]
+    update:
+      x-speakeasy-name-override: getTemplates
+    x-speakeasy-metadata:
+      after: sdk.cA.getTemplates()
+      before: sdk.CA.get_/api/CA/GetCATemplates()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdateIoTHubConnection"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updateIoTHubConnection
+    x-speakeasy-metadata:
+      after: sdk.ca.updateIoTHubConnection()
+      before: sdk.CA.post_/api/CA/UpdateIoTHubConnection()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CertAuthAudit/GetCertLogs"]["post"]
+    update:
+      x-speakeasy-name-override: getCertLogs
+    x-speakeasy-metadata:
+      after: sdk.certAuthAudit.getCertLogs()
+      before: sdk.CertAuthAudit.post_/api/CertAuthAudit/GetCertLogs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RotateSCEPChallenge"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: rotateSCEPChallenge
+    x-speakeasy-metadata:
+      after: sdk.CAs.rotateSCEPChallenge()
+      before: sdk.CA.get_/api/CA/RotateSCEPChallenge()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdateACMEAgent"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updateACMEAgent
+    x-speakeasy-metadata:
+      after: sdk.ca.updateACMEAgent()
+      before: sdk.CA.post_/api/CA/UpdateACMEAgent()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAvailableLocations"]["get"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: getAvailableLocations
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.getAvailableLocations()
+      before: sdk.CA.get_/api/CA/GetAvailableLocations()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: requestAKVSSLCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.CAs.requestAKVSSLCertificateV2()
+      before: sdk.CA.post_/api/CA/RequestAKVSSLCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetMyDomains"]["get"]
+    update:
+      x-speakeasy-name-override: getMyDomains
+    x-speakeasy-metadata:
+      after: sdk.cA.getMyDomains()
+      before: sdk.CA.get_/api/CA/GetMyDomains()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CreateSelfServiceCert"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: createSelfServiceCertificate
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.createSelfServiceCertificate()
+      before: sdk.CA.post_/api/CA/CreateSelfServiceCert()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetMyCAs"]["get"]
+    update:
+      x-speakeasy-name-override: getMyCas
+    x-speakeasy-metadata:
+      after: sdk.cA.getMyCas()
+      before: sdk.CA.get_/api/CA/GetMyCAs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetExistingSelfServiceCerts"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: getExistingSelfServiceCerts
+    x-speakeasy-metadata:
+      after: sdk.CAs.getExistingSelfServiceCerts()
+      before: sdk.CA.get_/api/CA/GetExistingSelfServiceCerts()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RegisterACMEAgent"]["post"]
+    update:
+      x-speakeasy-name-override: registerAcmeAgent
+    x-speakeasy-metadata:
+      after: sdk.cA.registerAcmeAgent()
+      before: sdk.CA.post_/api/CA/RegisterACMEAgent()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RenewSelfServiceCert"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: renewSelfServiceCert
+    x-speakeasy-metadata:
+      after: sdk.ca.renewSelfServiceCert()
+      before: sdk.CA.post_/api/CA/RenewSelfServiceCert()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetSCEPDynamicCodes"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getScepDynamicCodes
+    x-speakeasy-metadata:
+      after: sdk.ca.getScepDynamicCodes()
+      before: sdk.CA.get_/api/CA/GetSCEPDynamicCodes()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestIoTEdgeCertificateV2"]["post"]
+    update:
+      x-speakeasy-name-override: requestIotEdgeCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.cA.requestIotEdgeCertificateV2()
+      before: sdk.CA.post_/api/CA/RequestIoTEdgeCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestSCEPAdminCertificate"]["post"]
+    update:
+      x-speakeasy-name-override: requestScepAdminCertificate
+    x-speakeasy-metadata:
+      after: sdk.cA.requestScepAdminCertificate()
+      before: sdk.CA.post_/api/CA/RequestSCEPAdminCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/DeleteACMEAgent"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: deleteAcmeAgent
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.deleteAcmeAgent()
+      before: sdk.CA.post_/api/CA/DeleteACMEAgent()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RevokeCertificate"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: revokeCertificate
+    x-speakeasy-metadata:
+      after: sdk.ca.revokeCertificate()
+      before: sdk.CA.post_/api/CA/RevokeCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAvailableSSLCAs"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: getAvailableSSLCAs
+    x-speakeasy-metadata:
+      after: sdk.CAs.getAvailableSSLCAs()
+      before: sdk.CA.get_/api/CA/GetAvailableSSLCAs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAvailableScepCAs"]["get"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: getAvailableScepCAs
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.getAvailableScepCAs()
+      before: sdk.CA.get_/api/CA/GetAvailableScepCAs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestSSLCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: requestSslCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.ca.requestSslCertificateV2()
+      before: sdk.CA.post_/api/CA/RequestSSLCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetTemplateCerts"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getTemplateCerts
+    x-speakeasy-metadata:
+      after: sdk.ca.getTemplateCerts()
+      before: sdk.CA.post_/api/CA/GetTemplateCerts()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetACMECADetails"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getAcmeCaDetails
+    x-speakeasy-metadata:
+      after: sdk.ca.getAcmeCaDetails()
+      before: sdk.CA.get_/api/CA/GetACMECADetails()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RevokeCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: revokeCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.ca.revokeCertificateV2()
+      before: sdk.CA.post_/api/CA/RevokeCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/DeleteDomain"]["delete"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: deleteDomain
+    x-speakeasy-metadata:
+      after: sdk.CAs.deleteDomain()
+      before: sdk.CA.delete_/api/CA/DeleteDomain()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CreateGuestSelfServiceCert"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: createGuestSelfServiceCert
+    x-speakeasy-metadata:
+      after: sdk.ca.createGuestSelfServiceCert()
+      before: sdk.CA.post_/api/CA/CreateGuestSelfServiceCert()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RemoveCAIntegration"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: removeIntegration
+    x-speakeasy-metadata:
+      after: sdk.ca.removeIntegration()
+      before: sdk.CA.post_/api/CA/RemoveCAIntegration()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RenewCA"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: renew
+    x-speakeasy-metadata:
+      after: sdk.ca.renew()
+      before: sdk.CA.post_/api/CA/RenewCA()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RegisterNewF5Agent"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: registerNewF5Agent
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.registerNewF5Agent()
+      before: sdk.CA.post_/api/CA/RegisterNewF5Agent()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdateTemplateDetails"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updateTemplateDetails
+    x-speakeasy-metadata:
+      after: sdk.ca.updateTemplateDetails()
+      before: sdk.CA.post_/api/CA/UpdateTemplateDetails()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/DeleteCA"]["delete"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: deleteCa
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.deleteCa()
+      before: sdk.CA.delete_/api/CA/DeleteCA()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestDCCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: requestDcCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.ca.requestDcCertificateV2()
+      before: sdk.CA.post_/api/CA/RequestDCCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RegisterNewBehalfOfSelfServiceAgent"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: registerNewBehalfOfSelfServiceAgent
+    x-speakeasy-metadata:
+      after: sdk.ca.registerNewBehalfOfSelfServiceAgent()
+      before: sdk.CA.post_/api/CA/RegisterNewBehalfOfSelfServiceAgent()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/PKIAdminGetDomainDetails"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getDomainDetails
+    x-speakeasy-metadata:
+      after: sdk.ca.getDomainDetails()
+      before: sdk.CA.post_/api/CA/PKIAdminGetDomainDetails()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RenewAKVCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: renewAkVCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.renewAkVCertificateV2()
+      before: sdk.CA.post_/api/CA/RenewAKVCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetMyCertifcates"]["get"]
+    update:
+      x-speakeasy-name-override: getMyCertifcates
+    x-speakeasy-metadata:
+      after: sdk.cA.getMyCertifcates()
+      before: sdk.CA.get_/api/CA/GetMyCertifcates()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RenewAKVCertificate"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: renewAKVSSLCertificate
+    x-speakeasy-metadata:
+      after: sdk.ca.renewAKVSSLCertificate()
+      before: sdk.CA.post_/api/CA/RenewAKVCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAvailableCertIssuingCAs"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getAvailableCertIssuing
+    x-speakeasy-metadata:
+      after: sdk.ca.getAvailableCertIssuing()
+      before: sdk.CA.get_/api/CA/GetAvailableCertIssuingCAs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCAChains"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getCaChains
+    x-speakeasy-metadata:
+      after: sdk.ca.getCaChains()
+      before: sdk.CA.get_/api/CA/GetCAChains()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CreateADCSCA"]["post"]
+    update:
+      x-speakeasy-name-override: createAdcs
+    x-speakeasy-metadata:
+      after: sdk.cA.createAdcs()
+      before: sdk.CA.post_/api/CA/CreateADCSCA()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/Audit/GetCertLogs"]["post"]
+    update:
+      x-speakeasy-name-override: getCertLogs
+    x-speakeasy-metadata:
+      after: sdk.audit.getCertLogs()
+      before: sdk.Audit.post_/api/Audit/GetCertLogs()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/TestTemplateConnection"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: testTemplateConnection
+    x-speakeasy-metadata:
+      after: sdk.ca.testTemplateConnection()
+      before: sdk.CA.get_/api/CA/TestTemplateConnection()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdateDomainDetails"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updateDomainDetails
+    x-speakeasy-metadata:
+      after: sdk.ca.updateDomainDetails()
+      before: sdk.CA.post_/api/CA/UpdateDomainDetails()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetUserCATemplates"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getUserTemplates
+    x-speakeasy-metadata:
+      after: sdk.ca.getUserTemplates()
+      before: sdk.CA.get_/api/CA/GetUserCATemplates()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestSCEPAdminCertificateV2"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: requestScepAdminCertificateV2
+    x-speakeasy-metadata:
+      after: sdk.ca.requestScepAdminCertificateV2()
+      before: sdk.CA.post_/api/CA/RequestSCEPAdminCertificateV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdatePublicCACredentials"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updatePublicCredentials
+    x-speakeasy-metadata:
+      after: sdk.ca.updatePublicCredentials()
+      before: sdk.CA.post_/api/CA/UpdatePublicCACredentials()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCAErrors"]["get"]
+    update:
+      x-speakeasy-name-override: getErrors
+    x-speakeasy-metadata:
+      after: sdk.cA.getErrors()
+      before: sdk.CA.get_/api/CA/GetCAErrors()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/Certificates/RevokeCertificate"]["get"]
+    update:
+      x-speakeasy-name-override: revokeCertificate
+    x-speakeasy-metadata:
+      after: sdk.certificates.revokeCertificate()
+      before: sdk.Certificates.get_/api/Certificates/RevokeCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/ARM/GetEZCAHasAKVAccess"]["get"]
+    update:
+      x-speakeasy-group: arm
+      x-speakeasy-name-override: getEzcaHasAkVAccess
+    x-speakeasy-metadata:
+      after: sdk.arm.getEzcaHasAkVAccess()
+      before: sdk.ARM.get_/api/ARM/GetEZCAHasAKVAccess()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/PendingRequests/ApproveDenyRequest"]["post"]
+    update:
+      x-speakeasy-name-override: approveDeny
+    x-speakeasy-metadata:
+      after: sdk.pendingRequests.approveDeny()
+      before: sdk.PendingRequests.post_/api/PendingRequests/ApproveDenyRequest()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CreateIntermidiateCAInternalRoot"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: createIntermediateCaInternalRoot
+    x-speakeasy-metadata:
+      after: sdk.ca.createIntermediateCaInternalRoot()
+      before: sdk.CA.post_/api/CA/CreateIntermidiateCAInternalRoot()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CheckOrderStatus"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: checkOrderStatus
+    x-speakeasy-metadata:
+      after: sdk.ca.checkOrderStatus()
+      before: sdk.CA.get_/api/CA/CheckOrderStatus()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestDCCertificate"]["post"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: requestDcCertificate
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.requestDcCertificate()
+      before: sdk.CA.post_/api/CA/RequestDCCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificate"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: requestAKVSSLCertificate
+    x-speakeasy-metadata:
+      after: sdk.ca.requestAKVSSLCertificate()
+      before: sdk.CA.post_/api/CA/RequestAKVSSLCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/CheckSelfServiceCertAvailable"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: checkSelfServiceCertAvailable
+    x-speakeasy-metadata:
+      after: sdk.ca.checkSelfServiceCertAvailable()
+      before: sdk.CA.get_/api/CA/CheckSelfServiceCertAvailable()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RotateSCEPPassword"]["get"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: rotateScepPassword
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.rotateScepPassword()
+      before: sdk.CA.get_/api/CA/RotateSCEPPassword()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/Certificates/RenewCertificate"]["post"]
+    update:
+      x-speakeasy-name-override: renewCertificate
+    x-speakeasy-metadata:
+      after: sdk.certificates.renewCertificate()
+      before: sdk.Certificates.post_/api/Certificates/RenewCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAvailableRoots"]["get"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: getAvailableRoots
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.getAvailableRoots()
+      before: sdk.CA.get_/api/CA/GetAvailableRoots()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetTemplateDomains"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getTemplateDomains
+    x-speakeasy-metadata:
+      after: sdk.ca.getTemplateDomains()
+      before: sdk.CA.post_/api/CA/GetTemplateDomains()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetCAsWithRegisterDomainPermission"]["get"]
+    update:
+      x-speakeasy-group: certificateAuthorities
+      x-speakeasy-name-override: getCasWithRegisterDomainPermission
+    x-speakeasy-metadata:
+      after: sdk.certificateAuthorities.getCasWithRegisterDomainPermission()
+      before: sdk.CA.get_/api/CA/GetCAsWithRegisterDomainPermission()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/SignExternalSubCA"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: signExternalSubCA
+    x-speakeasy-metadata:
+      after: sdk.CAs.signExternalSubCA()
+      before: sdk.CA.post_/api/CA/SignExternalSubCA()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestFullSSLCertificate"]["post"]
+    update:
+      x-speakeasy-name-override: requestFullSslCertificate
+    x-speakeasy-metadata:
+      after: sdk.cA.requestFullSslCertificate()
+      before: sdk.CA.post_/api/CA/RequestFullSSLCertificate()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdateCADetails"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: updateDetails
+    x-speakeasy-metadata:
+      after: sdk.ca.updateDetails()
+      before: sdk.CA.post_/api/CA/UpdateCADetails()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/AmIAdmin"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: amIAdmin
+    x-speakeasy-metadata:
+      after: sdk.CAs.amIAdmin()
+      before: sdk.CA.get_/api/CA/AmIAdmin()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetAdminCAsCompatibleWithRadius"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: getAdminCAsCompatibleWithRadius
+    x-speakeasy-metadata:
+      after: sdk.CAs.getAdminCAsCompatibleWithRadius()
+      before: sdk.CA.get_/api/CA/GetAdminCAsCompatibleWithRadius()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetSelfServiceCertAvailableProfiles"]["get"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: getSelfServiceCertAvailableProfiles
+    x-speakeasy-metadata:
+      after: sdk.CAs.getSelfServiceCertAvailableProfiles()
+      before: sdk.CA.get_/api/CA/GetSelfServiceCertAvailableProfiles()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/Dashboard/GetInfo"]["get"]
+    update:
+      x-speakeasy-name-override: getInfo
+    x-speakeasy-metadata:
+      after: sdk.dashboard.getInfo()
+      before: sdk.Dashboard.get_/api/Dashboard/GetInfo()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/GetMyCertificatesV2"]["get"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: getMyCertificatesV2
+    x-speakeasy-metadata:
+      after: sdk.ca.getMyCertificatesV2()
+      before: sdk.CA.get_/api/CA/GetMyCertificatesV2()
+      created_at: 1740518748164
+      reviewed_at: 1740521859855
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestIoTEdgeCertificate"]["post"]
+    update:
+      x-speakeasy-name-override: requestIotEdgeCertificate
+    x-speakeasy-metadata:
+      after: sdk.cA.requestIotEdgeCertificate()
+      before: sdk.CA.post_/api/CA/RequestIoTEdgeCertificate()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/UpdatePublicCA"]["post"]
+    update:
+      x-speakeasy-group: CAs
+      x-speakeasy-name-override: updatePublicCA
+    x-speakeasy-metadata:
+      after: sdk.CAs.updatePublicCA()
+      before: sdk.CA.post_/api/CA/UpdatePublicCA()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/PendingRequests/CancelRequest"]["post"]
+    update:
+      x-speakeasy-name-override: cancelRequest
+    x-speakeasy-metadata:
+      after: sdk.pendingRequests.cancelRequest()
+      before: sdk.PendingRequests.post_/api/PendingRequests/CancelRequest()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/CreatePublicCA"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: createPublic
+    x-speakeasy-metadata:
+      after: sdk.ca.createPublic()
+      before: sdk.CA.post_/api/CA/CreatePublicCA()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/ImportIntermediateCA"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: importIntermediateCa
+    x-speakeasy-metadata:
+      after: sdk.ca.importIntermediateCa()
+      before: sdk.CA.post_/api/CA/ImportIntermediateCA()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/RequestDynamicSCEPCode"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: requestDynamicScepCode
+    x-speakeasy-metadata:
+      after: sdk.ca.requestDynamicScepCode()
+      before: sdk.CA.post_/api/CA/RequestDynamicSCEPCode()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/RegisterNewDomain"]["post"]
+    update:
+      x-speakeasy-group: ca
+      x-speakeasy-name-override: registerNewDomain
+    x-speakeasy-metadata:
+      after: sdk.ca.registerNewDomain()
+      before: sdk.CA.post_/api/CA/RegisterNewDomain()
+      created_at: 1740518748165
+      reviewed_at: 1740521859856
+      type: method-name
+  - target: $["paths"]["/api/CA/AdminDeleteDomain"]["delete"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740518952672
+      type: user-edit
+  - target: $["paths"]["/api/CA/SignExternalSubCA"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCACertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetCASubordinateCerts"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/TestAgentConnection"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/TestTemplateConnection"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAvailableRoots"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAvailableLocations"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetCAChains"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateIntermidiateCAInternalRoot"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/ImportIntermediateCA"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/ConnectCAToIoTHub"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateIoTHubConnection"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetACMECADetails"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateACMEAgent"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/DeleteACMEAgent"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RemoveCAIntegration"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetMyCertificatesV2"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/AmIAdmin"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/DeleteCA"]["delete"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/DeleteDomain"]["delete"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateCADetails"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetTemplateDomains"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetTemplateCerts"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSSLCertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSSLCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDCCertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDCCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSCEPAdminCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDynamicSCEPCode"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetSCEPDynamicCodes"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewAKVCertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewAKVCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateDomainDetails"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateTemplateDetails"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewDomain"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/PKIAdminGetDomainDetails"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RotateSCEPPassword"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RotateSCEPChallenge"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetPublicCATemplate"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAvailableSSLCAs"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAvailableCertIssuingCAs"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAvailableScepCAs"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetAdminCAsCompatibleWithRadius"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetUserCATemplates"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewCA"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCertificate"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCertificateV2"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775214
+      type: user-edit
+  - target: $["paths"]["/api/CA/TestPublicCAConnection"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdatePublicCACredentials"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreatePublicCA"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdatePublicCA"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/CheckOrderStatus"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/CheckSelfServiceCertAvailable"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetSelfServiceCertAvailableProfiles"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateSelfServiceCert"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateGuestSelfServiceCert"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetExistingSelfServiceCerts"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetCAsWithRegisterDomainPermission"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewF5Agent"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetCertificatePrivateKey"]["get"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewBehalfOfSelfServiceAgent"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewSelfServiceCert"]["post"]["x-speakeasy-group"]
+    update: CA
+    x-speakeasy-metadata:
+      created_at: 1740519775215
+      type: user-edit
+  - target: $["paths"]["/api/Audit/GetCertLogs"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520121740
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520161629
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateADCSCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/TestAgentConnection"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateIntermidiateCAInternalRoot"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/ImportIntermediateCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/ConnectCAToIoTHub"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateIoTHubConnection"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterACMEAgent"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateACMEAgent"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/DeleteACMEAgent"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RemoveCAIntegration"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateCADetails"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetTemplateDomains"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/GetTemplateCerts"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSSLCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSSLCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestFullSSLCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDCCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSCEPAdminCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestSCEPAdminCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestIoTEdgeCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDynamicSCEPCode"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewAKVCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewAKVCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateDomainDetails"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdateTemplateDetails"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewDomain"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/PKIAdminGetDomainDetails"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/TestPublicCAConnection"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdatePublicCACredentials"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreatePublicCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/UpdatePublicCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateSelfServiceCert"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/CreateGuestSelfServiceCert"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewF5Agent"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RegisterNewBehalfOfSelfServiceAgent"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/RenewSelfServiceCert"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CertAuthAudit/GetCertLogs"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/Certificates/RenewCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/PendingRequests/ApproveDenyRequest"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/PendingRequests/CancelRequest"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520716316
+      type: user-edit
+  - target: $["paths"]["/api/CA/SignExternalSubCA"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520853159
+      type: user-edit
+  - target: $["paths"]["/api/CA/RevokeCACertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520853159
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestDCCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520853159
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestIoTEdgeCertificate"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520853159
+      type: user-edit
+  - target: $["paths"]["/api/CA/RequestAKVSSLCertificateV2"]["post"]["requestBody"]
+    update:
+      required: true
+    x-speakeasy-metadata:
+      created_at: 1740520853159
+      type: user-edit
+  - target: $["info"]
+    update:
+      baseServerUrl: https://portal.ezca.io/
+    x-speakeasy-metadata:
+      created_at: 1740521224067
+      type: user-edit
+  - target: $
+    update:
+      baseServerUrl: https://portal.ezca.io/
+    x-speakeasy-metadata:
+      created_at: 1740521333217
+      type: user-edit
+  - target: $["info"]["baseServerUrl"]
+    remove: true
+    x-speakeasy-metadata:
+      created_at: 1740521333217
+      type: user-edit
+  - target: $["baseServerUrl"]
+    remove: true
+    x-speakeasy-metadata:
+      created_at: 1740521590215
+      type: user-edit
+  - target: $
+    update:
+      servers:
+        - url: https://portal.ezca.io/
+          description: Production
+    x-speakeasy-metadata:
+      created_at: 1740526878808
+      type: user-edit
+  - target: $
+    update:
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+    x-speakeasy-metadata:
+      created_at: 1740526878808
+      type: user-edit

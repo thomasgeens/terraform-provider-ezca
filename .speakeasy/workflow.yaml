@@ -1,0 +1,14 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    EZCA:
+        inputs:
+            - location: https://portal.ezca.io/swagger/v1/swagger.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/secotron/keytos-ezca/ezca
+targets:
+    ezca:
+        target: terraform
+        source: EZCA
