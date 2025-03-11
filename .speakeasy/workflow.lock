@@ -1,18 +1,19 @@
-speakeasyVersion: 1.504.1
+speakeasyVersion: 1.514.1
 sources:
     EZCA:
         sourceNamespace: ezca
-        sourceRevisionDigest: sha256:504e564ba618f96f8884e5549ccdb9c9fe6d8d20d6476e2dd0244ba1a06b1329
-        sourceBlobDigest: sha256:a4e045c4d5cf9be84c1d059695d453b9e852be1b97729ece8f26f98050493177
+        sourceRevisionDigest: sha256:58d126bc21876396257526b837e2b3449cf3e78a23784dbe7bd67c2a23ee3204
+        sourceBlobDigest: sha256:ebb0b3671bef47a4479cab846751ccbed164a9e60cd647abc7099a6ef453e306
         tags:
             - latest
+            - speakeasy-sdk-regen-1740966211
             - v1
 targets:
     ezca:
         source: EZCA
         sourceNamespace: ezca
-        sourceRevisionDigest: sha256:504e564ba618f96f8884e5549ccdb9c9fe6d8d20d6476e2dd0244ba1a06b1329
-        sourceBlobDigest: sha256:a4e045c4d5cf9be84c1d059695d453b9e852be1b97729ece8f26f98050493177
+        sourceRevisionDigest: sha256:58d126bc21876396257526b837e2b3449cf3e78a23784dbe7bd67c2a23ee3204
+        sourceBlobDigest: sha256:ebb0b3671bef47a4479cab846751ccbed164a9e60cd647abc7099a6ef453e306
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

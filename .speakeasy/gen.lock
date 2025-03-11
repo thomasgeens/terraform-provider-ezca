@@ -1,16 +1,17 @@
 lockVersion: 2.0.0
 id: 31f5becd-db98-4295-962e-ff62ef749297
 management:
-  docChecksum: fe244ad33f95c898babeb8695ec471ac
+  docChecksum: e59013172a26c00715eeb2b87fe194a3
   docVersion: v1
-  speakeasyVersion: 1.504.1
-  generationVersion: 2.529.2
-  releaseVersion: 0.7.0
-  configChecksum: 521c9fbd5d8121364f4fe23b25011822
+  speakeasyVersion: 1.514.1
+  generationVersion: 2.546.3
+  releaseVersion: 0.8.0
+  configChecksum: 0b0ec6e716819eab5c09fb1bb1bf4c26
+  repoURL: https://github.com/thomasgeens/terraform-provider-ezca.git
 features:
   terraform:
     additionalDependencies: 0.1.0
-    core: 3.34.0
+    core: 3.36.1
     envVarSecurityUsage: 0.1.0
     globalSecurity: 2.81.10
     globalServerURLs: 2.82.1
@@ -130,7 +131,6 @@ generatedFiles:
   - internal/sdk/models/operations/postapicaregisteracmeagent.go
   - internal/sdk/models/operations/postapicaregisternewbehalfofselfserviceagent.go
   - internal/sdk/models/operations/postapicaregisternewdomain.go
-  - internal/sdk/models/operations/postapicaregisternewf5agent.go
   - internal/sdk/models/operations/postapicaremovecaintegration.go
   - internal/sdk/models/operations/postapicarenewakvcertificate.go
   - internal/sdk/models/operations/postapicarenewakvcertificatev2.go
@@ -182,7 +182,6 @@ generatedFiles:
   - internal/sdk/models/shared/cainformationmodel.go
   - internal/sdk/models/shared/caintegrationrequestmodel.go
   - internal/sdk/models/shared/caissuerinformationmodel.go
-  - internal/sdk/models/shared/cashortinformationmodel.go
   - internal/sdk/models/shared/certauditrequestmodel.go
   - internal/sdk/models/shared/certificatecreaterequestmodel.go
   - internal/sdk/models/shared/certificatecreaterequestv2model.go
@@ -201,8 +200,6 @@ generatedFiles:
   - internal/sdk/models/shared/domainsresponsemodel.go
   - internal/sdk/models/shared/ekumodel.go
   - internal/sdk/models/shared/externalcasigningreq.go
-  - internal/sdk/models/shared/f5agentrequest.go
-  - internal/sdk/models/shared/f5requestmodel.go
   - internal/sdk/models/shared/guestselfservicecertrequest.go
   - internal/sdk/models/shared/intermediatecertrequestmodel.go
   - internal/sdk/models/shared/localcacreatedresponsemodel.go
@@ -255,19 +252,35 @@ generatedFiles:
   - terraform-registry-manifest.json
   - tools/tools.go
 examples:
-  get_/api/ARM/GetEZCAHasAKVAccess: {}
+  get_/api/ARM/GetEZCAHasAKVAccess:
+    speakeasy-default-get-/api/arm/get-EZCA-has-AKV-access:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/Audit/GetCertLogs:
     speakeasy-default-post-/api/audit/get-cert-logs:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}]
+          text/json: [{}, {}]
   post_/api/CA/CreateCA:
     speakeasy-default-post-/api/ca/create-CA:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/SignExternalSubCA:
     speakeasy-default-post-/api/ca/sign-external-sub-CA:
       requestBody:
@@ -287,99 +300,253 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/TestAgentConnection:
     speakeasy-default-post-/api/ca/test-agent-connection:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/TestTemplateConnection: {}
-  get_/api/CA/GetAvailableRoots: {}
-  get_/api/CA/GetAvailableLocations: {}
-  get_/api/CA/GetCAChains: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/TestTemplateConnection:
+    speakeasy-default-get-/api/ca/test-template-connection:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetAvailableRoots:
+    speakeasy-default-get-/api/ca/get-available-roots:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}]
+          text/json: [{}, {}]
+  get_/api/CA/GetAvailableLocations:
+    speakeasy-default-get-/api/ca/get-available-locations:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: ["<value>", "<value>"]
+          text/json: ["<value>"]
+  get_/api/CA/GetCAChains:
+    speakeasy-default-get-/api/ca/get-CA-chains:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}]
+          text/json: [{}, {}, {}]
   post_/api/CA/CreateIntermidiateCAInternalRoot:
     speakeasy-default-post-/api/ca/create-intermidiate-CA-internal-root:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/ImportIntermediateCA:
     speakeasy-default-post-/api/ca/import-intermediate-CA:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/ConnectCAToIoTHub:
     speakeasy-default-post-/api/ca/connect-CA-to-io-T-hub:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdateIoTHubConnection:
     speakeasy-default-post-/api/ca/update-io-T-hub-connection:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/GetCAIntegrations: {}
-  get_/api/CA/GetACMECADetails: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetCAIntegrations:
+    speakeasy-default-get-/api/ca/get-CA-integrations:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}]
+          text/json: [{}, {}]
+  get_/api/CA/GetACMECADetails:
+    speakeasy-default-get-/api/ca/get-ACMECA-details:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RegisterACMEAgent:
     speakeasy-default-post-/api/ca/register-ACME-agent:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdateACMEAgent:
     speakeasy-default-post-/api/ca/update-ACME-agent:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/DeleteACMEAgent:
     speakeasy-default-post-/api/ca/delete-ACME-agent:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RemoveCAIntegration:
     speakeasy-default-post-/api/ca/remove-CA-integration:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/GetMyCAs: {}
-  get_/api/CA/GetMyCertifcates: {}
-  get_/api/CA/GetMyCertificatesV2: {}
-  get_/api/CA/GetMyDomains: {}
-  get_/api/CA/AmIAdmin: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetMyCAs:
+    speakeasy-default-get-/api/ca/get-my-C-as:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetMyCertifcates:
+    speakeasy-default-get-/api/ca/get-my-certifcates:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetMyCertificatesV2:
+    speakeasy-default-get-/api/ca/get-my-certificates-v2:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetMyDomains:
+    speakeasy-default-get-/api/ca/get-my-domains:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/AmIAdmin:
+    speakeasy-default-get-/api/ca/am-I-admin:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: true
+          text/json: true
   get_/api/CA/GetCAErrors: {}
-  delete_/api/CA/DeleteCA: {}
-  delete_/api/CA/DeleteDomain: {}
-  delete_/api/CA/AdminDeleteDomain: {}
+  delete_/api/CA/DeleteCA:
+    speakeasy-default-delete-/api/ca/delete-CA:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  delete_/api/CA/DeleteDomain:
+    speakeasy-default-delete-/api/ca/delete-domain:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  delete_/api/CA/AdminDeleteDomain:
+    speakeasy-default-delete-/api/ca/admin-delete-domain:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdateCADetails:
     speakeasy-default-post-/api/ca/update-CA-details:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/GetTemplateDomains:
     speakeasy-default-post-/api/ca/get-template-domains:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/GetTemplateCerts:
     speakeasy-default-post-/api/ca/get-template-certs:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestSSLCertificate:
     speakeasy-default-post-/api/ca/request-SSL-certificate:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestSSLCertificateV2:
     speakeasy-default-post-/api/ca/request-SSL-certificate-v2:
       requestBody:
@@ -398,12 +565,22 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestDCCertificateV2:
     speakeasy-default-post-/api/ca/request-DC-certificate-v2:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestSCEPAdminCertificate:
     speakeasy-default-post-/api/ca/request-SCEP-admin-certificate:
       requestBody:
@@ -416,19 +593,35 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/GetCAsEKUs: {}
+  get_/api/CA/GetCAsEKUs:
+    speakeasy-default-get-/api/ca/get-C-as-EK-us:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestAKVSSLCertificate:
     speakeasy-default-post-/api/ca/request-AKVSSL-certificate:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestIoTEdgeCertificate:
     speakeasy-default-post-/api/ca/request-io-T-edge-certificate:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RequestAKVSSLCertificateV2:
     speakeasy-default-post-/api/ca/request-AKVSSL-certificate-v2:
       requestBody:
@@ -454,89 +647,202 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RenewAKVCertificateV2:
     speakeasy-default-post-/api/ca/renew-AKV-certificate-v2:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdateDomainDetails:
     speakeasy-default-post-/api/ca/update-domain-details:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdateTemplateDetails:
     speakeasy-default-post-/api/ca/update-template-details:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RegisterNewDomain:
     speakeasy-default-post-/api/ca/register-new-domain:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/PKIAdminGetDomainDetails:
     speakeasy-default-post-/api/ca/pki-admin-get-domain-details:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/GetCATemplates: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetCATemplates:
+    speakeasy-default-get-/api/ca/get-CA-templates:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}, {}]
+          text/json: [{}, {}]
   get_/api/CA/RotateSCEPPassword: {}
   get_/api/CA/RotateSCEPChallenge: {}
-  get_/api/CA/GetPublicCATemplate: {}
-  get_/api/CA/GetAvailableSSLCAs: {}
-  get_/api/CA/GetAvailableCertIssuingCAs: {}
-  get_/api/CA/GetAvailableScepCAs: {}
-  get_/api/CA/GetSSLCA: {}
+  get_/api/CA/GetPublicCATemplate:
+    speakeasy-default-get-/api/ca/get-public-CA-template:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/GetAvailableSSLCAs:
+    speakeasy-default-get-/api/ca/get-available-SSLC-as:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}]
+          text/json: [{}, {}, {}]
+  get_/api/CA/GetAvailableCertIssuingCAs:
+    speakeasy-default-get-/api/ca/get-available-cert-issuing-C-as:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}]
+          text/json: [{}, {}]
+  get_/api/CA/GetAvailableScepCAs:
+    speakeasy-default-get-/api/ca/get-available-scep-C-as:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}]
+          text/json: [{}, {}]
+  get_/api/CA/GetSSLCA:
+    speakeasy-default-get-/api/ca/get-SSLCA:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}]
+          text/json: [{}, {}]
   get_/api/CA/GetAdminCAsCompatibleWithRadius: {}
-  get_/api/CA/GetUserCATemplates: {}
+  get_/api/CA/GetUserCATemplates:
+    speakeasy-default-get-/api/ca/get-user-CA-templates:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}]
+          text/json: [{}, {}]
   post_/api/CA/RenewCA:
     speakeasy-default-post-/api/ca/renew-CA:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RevokeCertificate:
     speakeasy-default-post-/api/ca/revoke-certificate:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/RevokeCertificateV2:
     speakeasy-default-post-/api/ca/revoke-certificate-v2:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/TestPublicCAConnection:
     speakeasy-default-post-/api/ca/test-public-CA-connection:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdatePublicCACredentials:
     speakeasy-default-post-/api/ca/update-public-CA-credentials:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/CreatePublicCA:
     speakeasy-default-post-/api/ca/create-public-CA:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/CA/UpdatePublicCA:
     speakeasy-default-post-/api/ca/update-public-CA:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/CA/CheckOrderStatus: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/CA/CheckOrderStatus:
+    speakeasy-default-get-/api/ca/check-order-status:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   get_/api/CA/CheckSelfServiceCertAvailable: {}
   get_/api/CA/GetSelfServiceCertAvailableProfiles: {}
   post_/api/CA/CreateSelfServiceCert:
@@ -584,9 +890,32 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
-  get_/api/Certificates/RevokeCertificate: {}
-  get_/api/Dashboard/GetInfo: {}
-  get_/api/PendingRequests/GetPendingRequests: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/Certificates/RevokeCertificate:
+    speakeasy-default-get-/api/certificates/revoke-certificate:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/Dashboard/GetInfo:
+    speakeasy-default-get-/api/dashboard/get-info:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
+  get_/api/PendingRequests/GetPendingRequests:
+    speakeasy-default-get-/api/pending-requests/get-pending-requests:
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: [{}, {}, {}]
+          text/json: [{}, {}]
   get_/api/PendingRequests/GetFullPendingRequests: {}
   post_/api/PendingRequests/ApproveDenyRequest:
     speakeasy-default-post-/api/pending-requests/approve-deny-request:
@@ -594,11 +923,21 @@ examples:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
   post_/api/PendingRequests/CancelRequest:
     speakeasy-default-post-/api/pending-requests/cancel-request:
       requestBody:
         application/json: {}
         text/json: {}
         application/*+json: {}
+      responses:
+        "200":
+          text/plain: "<value>"
+          application/json: {}
+          text/json: {}
 examplesVersion: 1.0.0
 generatedTests: {}

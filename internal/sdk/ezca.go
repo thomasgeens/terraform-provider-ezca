@@ -153,9 +153,9 @@ func New(opts ...SDKOption) *Ezca {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
-			SDKVersion:        "0.7.0",
-			GenVersion:        "2.529.2",
-			UserAgent:         "speakeasy-sdk/terraform 0.7.0 2.529.2 v1 github.com/thomasgeens/terraform-provider-ezca/internal/sdk",
+			SDKVersion:        "0.8.0",
+			GenVersion:        "2.546.3",
+			UserAgent:         "speakeasy-sdk/terraform 0.8.0 2.546.3 v1 github.com/thomasgeens/terraform-provider-ezca/internal/sdk",
 			Hooks:             hooks.New(),
 		},
 	}
